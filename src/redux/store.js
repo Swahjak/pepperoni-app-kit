@@ -1,11 +1,11 @@
 import {applyMiddleware, createStore, compose} from 'redux';
-import * as reduxLoop from 'redux-loop-symbol-ponyfill';
+import {install} from 'redux-loop-symbol-ponyfill';
 import middleware from './middleware';
 import reducer from './reducer';
 
 const enhancers = [
   applyMiddleware(...middleware),
-  reduxLoop.install()
+  install()
 ];
 
 /* Enable redux dev tools only in development.
@@ -14,10 +14,10 @@ const enhancers = [
  */
 /* eslint-disable no-undef */
 const composeEnhancers = (
-	__DEV__ &&
+  __DEV__ &&
 	typeof (window) !== 'undefined' &&
 	window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-	) || compose;
+) || compose;
 /* eslint-enable no-undef */
 
 const enhancer = composeEnhancers(...enhancers);

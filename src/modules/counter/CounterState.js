@@ -15,25 +15,32 @@ const RANDOM_REQUEST = 'CounterState/RANDOM_REQUEST';
 const RANDOM_RESPONSE = 'CounterState/RANDOM_RESPONSE';
 
 // Action creators
-export function increment() {
+function increment() {
   return {type: INCREMENT};
 }
 
-export function reset() {
+function reset() {
   return {type: RESET};
 }
 
-export function random() {
+function random() {
   return {
     type: RANDOM_REQUEST
   };
 }
 
-export async function requestRandomNumber() {
+async function requestRandomNumber() {
   return {
     type: RANDOM_RESPONSE,
     payload: await generateRandomNumber()
   };
+}
+
+export const counterStateActions = {
+  increment,
+  reset,
+  random,
+  requestRandomNumber
 }
 
 // Reducer

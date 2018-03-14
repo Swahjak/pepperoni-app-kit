@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {addNavigationHelpers} from 'react-navigation';
 
 import AppNavigator from './Navigator';
+import {addListener} from '../../redux/middleware/navigatorMiddleware';
 
 class NavigatorView extends Component {
   static displayName = 'NavigationView';
@@ -24,7 +25,8 @@ class NavigatorView extends Component {
         navigation={
           addNavigationHelpers({
             dispatch: this.props.dispatch,
-            state: this.props.navigatorState
+            state: this.props.navigatorState,
+            addListener
           })
         }
       />

@@ -32,11 +32,10 @@ class AppView extends Component {
     return false;
   }
 
-  componentWillMount() {
-    BackHandler.addEventListener('hardwareBackPress', this.navigateBack);
-  }
-
   componentDidMount() {
+
+    BackHandler.addEventListener('hardwareBackPress', this.navigateBack);
+
     snapshotUtil.resetSnapshot()
       .then(snapshot => {
         const {dispatch} = this.props;
@@ -51,6 +50,11 @@ class AppView extends Component {
           snapshotUtil.saveSnapshot(store.getState());
         });
       });
+  }
+
+  componentWillUnmount() {
+
+    BackHandler.removeEventListener('hardwareBackPress', this.navigateBack);
   }
 
   render() {

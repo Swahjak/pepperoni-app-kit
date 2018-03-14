@@ -16,8 +16,8 @@ class CounterView extends Component {
   static navigationOptions = {
     title: 'Counter',
     tabBarIcon: (props) => (
-        <Icon name='plus-one' size={24} color={props.tintColor} />
-      )
+      <Icon name='plus-one' size={24} color={props.tintColor} />
+    )
   }
 
   static propTypes = {
@@ -63,7 +63,7 @@ class CounterView extends Component {
             width: 80,
             height: 80
           }}
-          />
+        />
         <Text style={styles.linkButton}>
           Welcome, {this.props.userName}!
         </Text>
@@ -92,18 +92,18 @@ class CounterView extends Component {
         </TouchableOpacity>
 
         <TouchableOpacity
-            accessible={true}
-            accessibilityLabel={'Reset counter'}
-            onPress={this.reset}>
+          accessible={true}
+          accessibilityLabel={'Reset counter'}
+          onPress={this.reset}>
           <Text style={styles.linkButton}>
             Reset
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-            accessible={true}
-            accessibilityLabel={'Randomize counter'}
-            onPress={this.random}>
+          accessible={true}
+          accessibilityLabel={'Randomize counter'}
+          onPress={this.random}>
           <Text style={styles.linkButton}>
             Random
           </Text>

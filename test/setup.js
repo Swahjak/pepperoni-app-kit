@@ -2,7 +2,7 @@
 jest.mock('Linking', () => ({
   addEventListener: jest.fn(),
   removeEventListener: jest.fn(),
-  openURL: jest.fn(),
-  canOpenURL: jest.fn(),
-  getInitialURL: jest.fn()
+  openURL: jest.genMockFn().mockReturnValue(Promise.resolve()),
+  canOpenURL: jest.genMockFn().mockReturnValue(Promise.resolve()),
+  getInitialURL: jest.genMockFn().mockReturnValue(Promise.resolve())
 }));
